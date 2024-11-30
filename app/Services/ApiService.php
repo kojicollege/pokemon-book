@@ -6,14 +6,20 @@ use Illuminate\Support\Facades\Http;
 
 class ApiService
 {
-    public function fetchData()
+    /**
+     * pokeapiに対してデータを取得
+     *
+     * @param int $no
+     * @return array
+     */
+    public function fetchData($no = 0)
     {
-        $response = Http::get('https://pokeapi.co/api/v2/pokemon/1');
+        $response = Http::get('https://pokeapi.co/api/v2/pokemon/' . $no);
 
         if ($response->successful()) {
-            return $response->json();
+            return (array) $response->json();
         }
 
-        return null;
+        return [];
     }
 }
