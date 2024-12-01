@@ -1,0 +1,46 @@
+* {
+    color: green;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    border: 1px solid green;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    text-align: center;
+}
+/* h2 {
+    text-align: center;
+} */
+
+.poke_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    width: 150px;
+    text-align: center;
+    padding: 10px;
+}
+
+.item a {
+    color: green;
+    font-size: 12px;
+}
+
+.imgarea img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
