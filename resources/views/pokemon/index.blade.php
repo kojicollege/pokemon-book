@@ -1,5 +1,9 @@
 <x-home>
-    <h1 class="border border-green-500 rounded-lg shadow-md w-1/5 p-2 m-3 text-center text-4xl">PokeDex</h1>
+    <h1
+        class="border border-green-500 rounded-lg shadow-md w-auto max-w-full sm:w-3/4 lg:w-1/5 p-2 m-3 text-center text-4xl break-words">
+        PokeDex
+    </h1>
+
 
     <div class="container p-4 flex flex-wrap justify-center items-center gap-8">
         @foreach($pokemons as $pokemon)
@@ -15,7 +19,7 @@
 
     <div id="pokemonModal"
         class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex justify-center items-center border-green-500">
-        <div class="bg-black rounded-lg p-4 w-1/3 mx-auto relative">
+        <div class="bg-black rounded-lg p-4 w-full max-w-screen-md mx-auto relative">
             <img src="{{ asset('storage/close-icon.svg') }}" id="closeModal"
                 class="absolute top-2 right-2 w-6 h-6 cursor-pointer">
             <div id="modalContent"></div>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Pokemons;
 
 class PokemonController extends Controller
@@ -10,7 +9,6 @@ class PokemonController extends Controller
     public function index()
     {
         $pokemons = Pokemons::orderBy('id', 'asc')->get();
-
 
         return view('pokemon.index', compact('pokemons'));
     }
@@ -21,7 +19,7 @@ class PokemonController extends Controller
         $pokemon = Pokemons::find($id);
 
         // データが見つからない場合の処理
-        if (!$pokemon) {
+        if (! $pokemon) {
             return redirect()->route('poke_show')->with('error', 'ポケモンが見つかりません。');
         }
 

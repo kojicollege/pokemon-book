@@ -1,8 +1,8 @@
 <?php
 
-return[
+return [
     'pokeid_range' => [
         'min' => '1',
-        'max' => '898'
+        'max' => '898',
     ],
 ];

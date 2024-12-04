@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use App\Services\ApiService;
 use App\Models\Pokemons;
+use App\Services\ApiService;
 use ChrisKonnertz\DeepLy\DeepLy;
+use Illuminate\Console\Command;
 
 class GetPokemonInfo extends Command
 {
@@ -34,13 +34,13 @@ class GetPokemonInfo extends Command
     public function handle()
     {
         $poke_id = $this->argument('poke_id');
-        $apiService = new ApiService();
-        $Pokemons = new Pokemons();
+        $apiService = new ApiService;
+        $Pokemons = new Pokemons;
 
         // 引数でポケモンのIDが指定されているかどうかで処理を分岐
-        if (!empty($poke_id)) {
+        if (! empty($poke_id)) {
             $p_id = Pokemons::where('p_id', $poke_id)->first();
-            if (!empty($p_id)) {
+            if (! empty($p_id)) {
                 // 処理を終了
                 return;
             }
@@ -60,7 +60,7 @@ class GetPokemonInfo extends Command
             $pokeid_max = config('pokemon.pokeid_range.max');
             for ($i = $pokeid_min; $i <= $pokeid_max; $i++) {
                 $p_id = Pokemons::where('p_id', $i)->first();
-                if (!empty($p_id)) {
+                if (! empty($p_id)) {
                     // 次の処理移動
                     continue;
                 }
@@ -97,7 +97,7 @@ class GetPokemonInfo extends Command
             $p_info['type2'] = null;
         }
         $p_info['ability1'] = $data['abilities'][0]['ability']['name'];
-        if (isset($data['abilities'][1]) && !$data['abilities'][1]['is_hidden']) {
+        if (isset($data['abilities'][1]) && ! $data['abilities'][1]['is_hidden']) {
             $p_info['ability2'] = $data['abilities'][1]['ability']['name'];
             $p_info['hidden_ability'] = $data['abilities'][2]['ability']['name'];
         } else {
